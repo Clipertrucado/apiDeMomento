@@ -1,7 +1,7 @@
 package JSIA.apiMoteros.servicios;
+
 import JSIA.apiMoteros.daos.*;
 import JSIA.apiMoteros.repository.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,11 +11,14 @@ import java.util.Optional;
 @Service
 public class ClubService {
 
-    @Autowired
-    private ClubRepository clubRepository;
+    private final ClubRepository clubRepository;
+    private final UsuarioRepository usuarioRepository;
 
     @Autowired
-    private UsuarioRepository usuarioRepository;
+    public ClubService(ClubRepository clubRepository, UsuarioRepository usuarioRepository) {
+        this.clubRepository = clubRepository;
+        this.usuarioRepository = usuarioRepository;
+    }
 
     // Métodos para Club
 
@@ -23,9 +26,9 @@ public class ClubService {
         return clubRepository.findAll();
     }
 
-    public Clubs loginClub(String mail, String contrasenya) {
-        Optional<Clubs> club = clubRepository.findByMailClubAndContrasenyaClub(mail, contrasenya);
-        return club.orElse(null);
+    public Clubs loginClub(String mail, String contrasenya) { 
+    Optional<Clubs> club = clubRepository.findByMailClubAndContrasenyaClub(mail, contrasenya); 
+    return club.orElse(null); 
     }
 
     public Clubs createClub(Clubs club) {
@@ -87,5 +90,3 @@ public class ClubService {
         usuarioRepository.deleteById(id);
     }
 }
-
-
