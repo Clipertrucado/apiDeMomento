@@ -28,7 +28,7 @@ public class ClubService {
 
     public Clubs loginClub(String mail, String contrasenya) { 
     Optional<Clubs> club = clubRepository.findByMailClubAndContrasenyaClub(mail, contrasenya); 
-    return club.orElse(null); 
+    return club.orElse(null);
     }
 
     public Clubs createClub(Clubs club) {

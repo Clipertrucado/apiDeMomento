@@ -30,7 +30,7 @@ public class ClubController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/clubs/login")
     public ResponseEntity<?> loginClub(@RequestBody LoginRequest loginRequest) {
-	    Clubs club = clubService.loginClub(loginRequest.getMailClub(), loginRequest.getContrasenyaClub()); 
+	    Clubs club = clubService.loginClub(loginRequest.getMail(), loginRequest.getContrasenya()); 
 	    if (club != null) { 
 	    	return ResponseEntity.ok(club); 
 	    } else { 
@@ -73,7 +73,7 @@ public class ClubController {
     @CrossOrigin(origins = "http://127.0.0.1:5500")
     @PostMapping("/usuarios/login")
     public ResponseEntity<?> loginUsuario(@RequestBody LoginRequest loginRequest) {
-        Usuarios usuario = clubService.loginUsuario(loginRequest.getMailClub(), loginRequest.getContrasenyaClub());
+        Usuarios usuario = clubService.loginUsuario(loginRequest.getMail(), loginRequest.getContrasenya());
         if (usuario != null) {
             return ResponseEntity.ok(usuario);
         } else {

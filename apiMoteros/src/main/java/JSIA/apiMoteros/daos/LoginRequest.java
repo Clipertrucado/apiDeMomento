@@ -5,7 +5,7 @@ public class LoginRequest {
     private String contrasenyaClub;
 
     // Getters y Setters
-    public String getMailClub() {
+    public String getMail() {
         return mailClub;
     }
 
@@ -13,7 +13,7 @@ public class LoginRequest {
         this.mailClub = mailClub;
     }
 
-    public String getContrasenyaClub() {
+    public String getContrasenya() {
         return contrasenyaClub;
     }
 
